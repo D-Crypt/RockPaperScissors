@@ -1,6 +1,6 @@
 <script>
     function computerPlay() {
-        rng = Math.random();
+        let rng = Math.random();
 
         if (rng < 0.33) {
             return "rock";
@@ -11,8 +11,13 @@
         }
     }
 
+    function userPlay() {
+        let playerSelection = prompt("Enter your move! (Rock, Paper or Scissors):")
+        return playerSelection.toLowerCase();
+    }
+
     const computerSelection = computerPlay();
-    const playerSelection = ("rock");
+    const playerSelection = userPlay();
 
     function playRound(computerSelection, playerSelection) {
         if (computerSelection == playerSelection) {
