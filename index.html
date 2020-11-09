@@ -1,10 +1,11 @@
 <script>
     function computerPlay() {
-        let rng = Math.random();
+        let RNG = Math.floor(Math.random() * 3);
+        console.log("RNG seed is: " + RNG);
 
-        if (rng < 0.33) {
+        if (RNG == 0) {
             return "rock";
-        } else if (rng >= 0.33 && rng <= 0.66) {
+        } else if (RNG == 1) {
             return "paper";
         } else {
             return "scissors";
@@ -12,8 +13,7 @@
     }
 
     function userPlay() {
-        let playerSelection = prompt("Enter your move! (Rock, Paper or Scissors):")
-
+        let playerSelection = prompt("Enter your move! (Rock, Paper or Scissors):");
         return playerSelection.toLowerCase();
     }
 
@@ -29,7 +29,7 @@
         showChoices(computerSelection, playerSelection);
 
         if (computerSelection == playerSelection) {
-            return "Tie! You both picked " + computerSelection + "."
+            return "Tie! You both picked " + computerSelection + ".";
         }
 
         if (playerSelection == "rock") {
@@ -42,13 +42,13 @@
             if (computerSelection == "rock") {
                 return "You win! Paper beats rock."
             } else if (computerSelection == "scissors") {
-                return "You lose! Scissors beats paper."
+                return "You lose! Scissors beats paper.";
             }
         } else if (playerSelection == "scissors") {
             if (computerSelection == "paper") {
-                return "You win! Scissors beats paper."
+                return "You win! Scissors beats paper.";
             } else if (computerSelection == "rock") {
-                return "You lose! Rock beats scissors."
+                return "You lose! Rock beats scissors.";
             }
         }
     }
