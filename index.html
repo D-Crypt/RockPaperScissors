@@ -13,13 +13,21 @@
 
     function userPlay() {
         let playerSelection = prompt("Enter your move! (Rock, Paper or Scissors):")
+
         return playerSelection.toLowerCase();
     }
 
     const computerSelection = computerPlay();
     const playerSelection = userPlay();
 
+    function showChoices(computerSelection, playerSelection) {
+        console.log("You picked: " + playerSelection);
+        console.log("CPU picked: " + computerSelection);
+    }
+
     function playRound(computerSelection, playerSelection) {
+        showChoices(computerSelection, playerSelection);
+
         if (computerSelection == playerSelection) {
             return "Tie! You both picked " + computerSelection + "."
         }
