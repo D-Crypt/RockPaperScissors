@@ -37,6 +37,11 @@
         }
     }
 
+    function showScores() {
+        console.log("Player: " + playerScore);
+        console.log("CPU: " + computerScore);
+    }
+
     function playRound(computerSelection, playerSelection) {
         showChoices(computerSelection, playerSelection);
 
@@ -72,10 +77,13 @@
     }
 
     function game() {
+        console.log("First to five wins!");
+
         while (!checkScores()) {
             const computerSelection = computerPlay();
             const playerSelection = userPlay();
             console.log(playRound(computerSelection, playerSelection));
+            showScores();
         }
     }
 
