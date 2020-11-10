@@ -21,6 +21,22 @@
         console.log("CPU picked: " + computerSelection);
     }
 
+    let playerScore = 0;
+    let computerScore = 0;
+
+    function checkScores() {
+        let playerWin = false;
+        let computerWin = false;
+
+        if (playerScore >= 3) {
+            console.log("You win!");
+            return playerWin = true;
+        } else if (computerScore >= 3) {
+            console.log("You lose.");
+            return computerWin = true;
+        }
+    }
+
     function playRound(computerSelection, playerSelection) {
         showChoices(computerSelection, playerSelection);
 
@@ -30,27 +46,33 @@
 
         if (playerSelection == "rock") {
             if (computerSelection == "scissors") {
+                playerScore++;
                 return "You win! Rock beats scissors.";
             } else if (computerSelection == "paper") {
+                computerScore++;
                 return "You lose! Paper beats rock.";
             }
         } else if (playerSelection == "paper") {
             if (computerSelection == "rock") {
+                playerScore++;
                 return "You win! Paper beats rock."
             } else if (computerSelection == "scissors") {
+                computerScore++;
                 return "You lose! Scissors beats paper.";
             }
         } else if (playerSelection == "scissors") {
             if (computerSelection == "paper") {
+                playerScore++;
                 return "You win! Scissors beats paper.";
             } else if (computerSelection == "rock") {
+                computerScore++;
                 return "You lose! Rock beats scissors.";
             }
-        }
+        } else return "You entered an invalid move."
     }
 
     function game() {
-        for (let i = 0; i < 5; i++) {
+        while (!checkScores()) {
             const computerSelection = computerPlay();
             const playerSelection = userPlay();
             console.log(playRound(computerSelection, playerSelection));
