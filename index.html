@@ -1,7 +1,6 @@
 <script>
     function computerPlay() {
         const RNG = Math.floor(Math.random() * 3);
-        console.log("RNG seed is: " + RNG);
 
         if (RNG == 0) {
             return "rock";
@@ -16,9 +15,6 @@
         let playerSelection = prompt("Enter your move! (Rock, Paper or Scissors):");
         return playerSelection.toLowerCase();
     }
-
-    const computerSelection = computerPlay();
-    const playerSelection = userPlay();
 
     function showChoices(computerSelection, playerSelection) {
         console.log("You picked: " + playerSelection);
@@ -53,5 +49,13 @@
         }
     }
 
-    console.log(playRound(computerSelection, playerSelection));
+    function game() {
+        for (let i = 0; i < 5; i++) {
+            const computerSelection = computerPlay();
+            const playerSelection = userPlay();
+            console.log(playRound(computerSelection, playerSelection));
+        }
+    }
+
+    game();
 </script>
